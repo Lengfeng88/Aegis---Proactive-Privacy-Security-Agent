@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: aegis-extension-backend
+    env: node
+    plan: free
+    region: oregon
+
+    # 部署时执行的命令
+    buildCommand: cd plugin && npm install && npm run build
+    startCommand: cd plugin && npm start
+
+    # Node.js 版本（和你本地一致）
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+
+    # 根目录是 repo
+    rootDir: .
